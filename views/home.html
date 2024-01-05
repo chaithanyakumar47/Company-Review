@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Reviews</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;  
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  
+  width: 500px;
+  margin: 0 auto;
+}
+
+label, input, textarea {
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px; 
+  border: 1px solid #ddd;
+  border-radius: 3px; 
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
+
+#reviews {
+  margin-top: 30px;  
+  list-style: none;
+  padding: 0;
+}
+
+#reviews li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  
+  margin-bottom: 10px;
+}
+    </style>
+
+</head>
+<body>
+    <h1 style="text-align: center;">Add a Review</h1>
+    <form onsubmit="saveReview(event)" method="POST">
+        <table>
+            <tr>
+                <td><label for="companyName">Company Name:</label></td>
+                <td><input type="text" name="companyName"></td>
+            </tr>
+            <tr>
+                <td><label for="pros">Pros:</label></td>
+                <td><input type="textarea" name="pros"></td>
+            </tr>
+            <tr>
+                <td><label for="cons">Cons:</label></td>
+                <td><input type="textarea" name="cons"></td>
+            </tr>
+            <tr>
+                <td><label for="rating">Rating(Out of 5):</label></td>
+                <td><input type="number" name="rating" min="0" max="5"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Submit Review</button></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <br>
+    <br>
+    <form onsubmit="getReview(event)">
+        <table>
+            <tr>
+                <td><label for="companyName">Company Name:</label></td>
+                <td><input type="text" name="companyName" placeholder="Search Company Name" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit" id="search">Search</button></td>
+            </tr>
+        </table>
+    </form>
+    <ul id="reviews"></ul>
+    
+    
+</body>
+<script src="logic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+</html>
